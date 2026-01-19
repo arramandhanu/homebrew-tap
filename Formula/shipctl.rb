@@ -12,7 +12,7 @@ class Shipctl < Formula
   def install
     prefix.install Dir["*"]
     bin.install_symlink prefix/"shipctl" => "shipctl"
-    bash_completion.install "completions/shipctl.bash" => "shipctl"
+    bash_completion.install prefix/"completions/shipctl.bash" => "shipctl"
   end
 
   def caveats
