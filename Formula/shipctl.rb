@@ -2,7 +2,7 @@ class Shipctl < Formula
   desc "Professional Docker deployment automation tool"
   homepage "https://github.com/arramandhanu/shipctl"
   url "https://github.com/arramandhanu/shipctl/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed"
+  sha256 "b9473cb2977f43ca8c31c340e838126824f85e77ecd99fe74fd75da97e255332"
   license "MIT"
   version "1.0.0"
 
