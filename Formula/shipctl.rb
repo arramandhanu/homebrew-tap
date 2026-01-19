@@ -2,7 +2,7 @@ class Shipctl < Formula
   desc "Professional Docker deployment automation tool"
   homepage "https://github.com/arramandhanu/shipctl"
   url "https://github.com/arramandhanu/shipctl/archive/refs/tags/v1.0.1.tar.gz"
-  sha256 "e22fc1a8daf74b908d4689be35cc7ff1b6be935dba0dfb8ae0781058b928be72"
+  sha256 "4e9f37b5a16c5fdeba5b4e60b0d520ac5d6cb0f77c4dee3b01aa06519fa97b3e"
   license "MIT"
   version "1.0.1"
 
@@ -10,10 +10,17 @@ class Shipctl < Formula
   depends_on "git"
 
   def install
+    # Install completions first (before moving files to prefix)
+    if File.exist?("completions/shipctl.bash")
+      bash_completion.install "completions/shipctl.bash" => "shipctl"
+      zsh_completion.install "completions/shipctl.bash" => "_shipctl"
+    end
+    
+    # Install all files to prefix
     prefix.install Dir["*"]
+    
+    # Create symlink to bin
     bin.install_symlink prefix/"shipctl" => "shipctl"
-    bash_completion.install prefix/"completions/shipctl.bash" => "shipctl"
-    zsh_completion.install prefix/"completions/shipctl.bash" => "_shipctl"
   end
 
   def caveats
